@@ -51,6 +51,12 @@ public class CriminalDatabaseApplicationTester {
     }
 
     @Test
+    void testSearchFirst_Incorrect() {
+        ArrayList<Person> peopleFound = db.searchFirst("iuhawiudjpojmolnmaiwuidn");
+        assertTrue(peopleFound.size() == 0);
+    }
+
+    @Test
     void testSearchFirst_Correct() {
         assertTrue(db.searchFirst("Blop").get(0) instanceof Person);
     }
