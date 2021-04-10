@@ -204,7 +204,7 @@ public class CriminalDatabaseApplication {
      */
     public void createWitness(UUID personID, String firstName, String lastName, String gender, String race, int age, double height, double weight, String phoneNumber, String address, String occupation, String relationship, String statement){
         Witness witness = new Witness(personID, firstName, lastName, gender, race, age, height, weight, phoneNumber, address, occupation, relationship, statement);
-        caseList.addWitness(witness);
+        personList.addWitness(witness);
     }
 
     /**
@@ -226,7 +226,7 @@ public class CriminalDatabaseApplication {
      */
     public void createVictim(UUID personID, String firstName, String lastName, String gender, String race, int age, double height, double weight, String phoneNumber, String address, String occupation, String relationship, String statement){
         Victim victim = new Victim(personID, firstName, lastName, gender, race, age, height, weight, phoneNumber, address, occupation, relationship, statement);
-        caseList.addVictim(victim);
+        personList.addVictim(victim);
     }
 
     /**
@@ -255,7 +255,7 @@ public class CriminalDatabaseApplication {
     public void createSuspect(UUID personID, String firstName, String lastName, String gender, String race, int age, double height, double weight, String phoneNumber, String address, String occupation, String hairColor, 
     String eyeColor, String footSize, String bloodType, String fingerPrint, String details, ArrayList<String> clothing, ArrayList<String> tattoos){
         Suspect suspect = new Suspect(personID, firstName, lastName, gender, race, age, height, weight, phoneNumber, address, occupation, hairColor, eyeColor, footSize, bloodType, fingerPrint, details, clothing, tattoos);
-        caseList.addSuspect(suspect);
+        personList.addSuspect(suspect);
     }
 
     /**
@@ -280,7 +280,7 @@ public class CriminalDatabaseApplication {
     public void createPOI(UUID personID, String firstName, String lastName, String gender, String race, int age, double height, double weight, String phoneNumber, String address, String occupation, String hairColor,
     String eyeColor, String reasonofInterest, String avaliableDetails){
         PersonOfInterest poi = new PersonOfInterest(personID, firstName, lastName, gender, race, age, height, weight, phoneNumber, address, occupation, hairColor, eyeColor, reasonofInterest, avaliableDetails);
-        caseList.addPOI(poi);
+        personList.addPOI(poi);
     }
 
     /**
