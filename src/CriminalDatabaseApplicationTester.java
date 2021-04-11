@@ -21,6 +21,7 @@ public class CriminalDatabaseApplicationTester {
         tattoosPersonTest.add("yellow dove");
 
         db.createSuspect(UUID.randomUUID(), "Tattoo", "man", "male", "white", 21, 129, 233, "938241341123", "029 awdij lane", "tattoo man", "brown", "blue", "12m", "A+", "Whorl", "ihuaawdkjnawdoiijoikj", clothesPersonTest, tattoosPersonTest);
+        db.createSuspect(UUID.randomUUID(), "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïð", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïð", "B", "C", 0, 22, 22, "ADWAWD", "AWDAWDAWDAWD", "ZXCZXCZXC", "ZXCZXCZXC", "ZXCZXCZXC", "ZXCZXCZXC", "ZXCZXCZXC", "ZXCZXCZXC", "ZXCZXCZXC", clothesPersonTest, tattoosPersonTest);
         db.createAdmin(UUID.randomUUID(), "", "", "", "", "", "", " ", false);
         db.createVictim(UUID.randomUUID(), "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïð","ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïð","B","C", 0, 22, 22, "ADWAWD", "AWDAWDAWDAWD", "ZXCZXCZXC", "IOUHAWFIDJBHN", "OIHJAo:iwJDOIJAWD\t\t\t0");
         db.saveAll();
@@ -70,17 +71,6 @@ public class CriminalDatabaseApplicationTester {
         assertTrue(db.searchFirst("Blop").get(0) instanceof Person);
     }
 
-<<<<<<< HEAD
-    //test SearchTattoo
-    @Test
-    void testSearchTattoo_Null() {
-        assertEquals(db.searchTattoo(null), new ArrayList<Person>());
-    }
-
-    @Test
-    void testSearchTattoo_ASCII() {
-        Person personAscii = db.searchTattoo("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïð").get(0);
-=======
     //searchLast test
     @Test
     void testSearchLast_Null() {
@@ -90,21 +80,10 @@ public class CriminalDatabaseApplicationTester {
     @Test
     void testSearchLast_ASCII() {
         Person personAscii = db.searchLast("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïð").get(0);
->>>>>>> 83470f894e463e9bd184e15eff08ce08ad87369b
         assertTrue(personAscii instanceof Person);
     }
 
     @Test
-<<<<<<< HEAD
-    void testSearchTattoo_Incorrect() {
-        ArrayList<Person> peopleFound = db.searchTattoo("iuhawiudjpojmolnmaiwuidn");
-        assertTrue(peopleFound.size() == 0);
-    }
-
-    @Test
-    void testSearchTattoo_Correct() {
-        assertTrue(db.searchTattoo("red heart").get(0) instanceof Person);
-=======
     void testSearchLast_Correct() {
         assertTrue(db.searchLast("Whoo").get(0) instanceof Person);
     }
@@ -209,7 +188,6 @@ public class CriminalDatabaseApplicationTester {
     @Test
     void testSearchPhone_Correct() {
         assertTrue(db.searchPhone("8435051109").get(0) instanceof Person);
->>>>>>> 83470f894e463e9bd184e15eff08ce08ad87369b
     }
 
     //searchAddress test
@@ -254,7 +232,7 @@ public class CriminalDatabaseApplicationTester {
 
     @Test
     void testSearchBlood_ASCII() {
-        Person personAscii = db.searchBlood("IOUHAWFIDJBHN").get(0);
+        Person personAscii = db.searchBlood("ZXCZXCZXC").get(0);
         assertTrue(personAscii instanceof Person);
     }
 
@@ -271,12 +249,46 @@ public class CriminalDatabaseApplicationTester {
 
     @Test
     void testSearchHair_ASCII() {
-        Person personAscii = db.searchHair("IOUHAWFIDJBHN").get(0);
+        Person personAscii = db.searchHair("ZXCZXCZXC").get(0);
         assertTrue(personAscii instanceof Person);
     }
 
     @Test
     void testSearchHair_Correct() {
-        assertTrue(db.searchHair("NA").get(0) instanceof Person);
+        assertTrue(db.searchHair("brown").get(0) instanceof Person);
+    }
+
+    //searchFoot test
+    @Test
+    void testSearchFoot_Null() {
+        assertEquals(db.searchFoot(null), new ArrayList<Person>());
+    }
+
+    @Test
+    void testSearchFoot_ASCII() {
+        Person personAscii = db.searchFoot("ZXCZXCZXC").get(0);
+        assertTrue(personAscii instanceof Person);
+    }
+
+    @Test
+    void testSearchFoot_Correct() {
+        assertTrue(db.searchFoot("12m").get(0) instanceof Person);
+    }
+
+    //searchEye test
+    @Test
+    void testSearchEye_Null() {
+        assertEquals(db.searchEye(null), new ArrayList<Person>());
+    }
+
+    @Test
+    void testSearchEye_ASCII() {
+        Person personAscii = db.searchEye("ZXCZXCZXC").get(0);
+        assertTrue(personAscii instanceof Person);
+    }
+
+    @Test
+    void testSearchEye_Correct() {
+        assertTrue(db.searchEye("blue").get(0) instanceof Person);
     }
 }
