@@ -180,4 +180,72 @@ public class CriminalDatabaseApplicationTester {
     void testSearchPhone_Correct() {
         assertTrue(db.searchPhone("8435051109").get(0) instanceof Person);
     }
+
+    //searchAddress test
+    @Test
+    void testSearchAddress_Null() {
+        assertEquals(db.searchAddress(null), new ArrayList<Person>());
+    }
+
+    @Test
+    void testSearchAddress_ASCII() {
+        Person personAscii = db.searchAddress("AWDAWDAWDAWD").get(0);
+        assertTrue(personAscii instanceof Person);
+    }
+
+    @Test
+    void testSearchAddress_Correct() {
+        assertTrue(db.searchAddress("1234 blue st").get(0) instanceof Person);
+    }
+
+    //searchOccupation test
+    @Test
+    void testSearchOccupation_Null() {
+        assertEquals(db.searchOccupation(null), new ArrayList<Person>());
+    }
+
+    @Test
+    void testSearchOccupation_ASCII() {
+        Person personAscii = db.searchOccupation("ZXCZXCZXC").get(0);
+        assertTrue(personAscii instanceof Person);
+    }
+
+    @Test
+    void testSearchOccupation_Correct() {
+        assertTrue(db.searchOccupation("worker").get(0) instanceof Person);
+    }
+
+    //searchBlood test
+    @Test
+    void testSearchBlood_Null() {
+        assertEquals(db.searchBlood(null), new ArrayList<Person>());
+    }
+
+    @Test
+    void testSearchBlood_ASCII() {
+        Person personAscii = db.searchBlood("IOUHAWFIDJBHN").get(0);
+        assertTrue(personAscii instanceof Person);
+    }
+
+    @Test
+    void testSearchBlood_Correct() {
+        assertTrue(db.searchBlood("NA").get(0) instanceof Person);
+    }
+
+    //searchHair test
+    @Test
+    void testSearchHair_Null() {
+        assertEquals(db.searchHair(null), new ArrayList<Person>());
+    }
+
+    @Test
+    void testSearchHair_ASCII() {
+        Person personAscii = db.searchHair("IOUHAWFIDJBHN").get(0);
+        assertTrue(personAscii instanceof Person);
+    }
+
+    @Test
+    void testSearchHair_Correct() {
+        assertTrue(db.searchHair("NA").get(0) instanceof Person);
+    }
 }
