@@ -72,11 +72,8 @@ public class CriminalDatabaseApplicationTester {
         assertTrue(db.searchFirst("Blop").get(0) instanceof Person);
     }
 
-<<<<<<< HEAD
     
-=======
     //searchLast test
->>>>>>> a5795d830f8f5a6abbd55c2d019bb4c5368ed462
     @Test
     void testSearchLast_Null() {
         assertEquals(db.searchLast(null), new ArrayList<Person>());
@@ -88,12 +85,9 @@ public class CriminalDatabaseApplicationTester {
         assertTrue(personAscii instanceof Person);
     }
 
-<<<<<<< HEAD
     
 
-=======
     @Test
->>>>>>> a5795d830f8f5a6abbd55c2d019bb4c5368ed462
     void testSearchLast_Correct() {
         assertTrue(db.searchLast("Whoo").get(0) instanceof Person);
     }
