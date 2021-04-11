@@ -12,7 +12,15 @@ public class CriminalDatabaseApplicationTester {
     static void setup() {
         db.createAdmin(UUID.randomUUID(), "Randy", "Briggs", "rbriggs", "IAmATest", "rbriggs@gmail.com", "8023949949", "Sumter County", true);
         db.createWitness(UUID.randomUUID(), "Blop", "Whoo", "Male", "White", 19, 62.6, 167.4, "8435051109", "1234 blue st", "worker", "NA", "saw accident and shooting");
-        db.createWitness(UUID.randomUUID(), "Blop", "Whoo", "Male", "White", 999999999, 99999999999999999.999999999999999999, 99999999999999999.999999999999999999, "8435051109", "1234 blue st", "worker", "NA", "saw accident and shooting");
+        //(UUID personID, String firstName, String lastName, String gender, String race, int age, double height, double weight, String phoneNumber, String address, String occupation, String hairColor, 
+        //String eyeColor, String footSize, String bloodType, String fingerPrint, String details, ArrayList<String> clothing, ArrayList<String> tattoos)
+        ArrayList<String> clothesPersonTest = new ArrayList<String>();
+        ArrayList<String> tattoosPersonTest = new ArrayList<String>();
+        clothesPersonTest.add("Big Jacket");
+        tattoosPersonTest.add("red heart");
+        tattoosPersonTest.add("yellow dove");
+
+        db.createSuspect(UUID.randomUUID(), "Tattoo", "man", "male", "white", 21, 129, 233, "938241341123", "029 awdij lane", "tattoo man", "brown", "blue", "12m", "A+", "Whorl", "ihuaawdkjnawdoiijoikj", clothesPersonTest, tattoosPersonTest);
         db.createAdmin(UUID.randomUUID(), "", "", "", "", "", "", " ", false);
         db.createVictim(UUID.randomUUID(), "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïð","ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïð","B","C", 0, 22, 22, "ADWAWD", "AWDAWDAWDAWD", "ZXCZXCZXC", "IOUHAWFIDJBHN", "OIHJAo:iwJDOIJAWD\t\t\t0");
         db.saveAll();
@@ -39,7 +47,7 @@ public class CriminalDatabaseApplicationTester {
     }
 
     //searchFirst Tests
-    //ADDED FIX, ALL ADD METHODS NEED TO ADD TO PERSON LIST. FIX BEFORE CHANGE
+    //ADDED FIX, ALL ADD METHODS NEED TO ADD TO PERSON LIST. FIX IN ACTUAL CODE BEFORE CHANGE
     @Test
     void testSearchFirst_Null() {
         assertEquals(db.searchFirst(null), new ArrayList<Person>());
@@ -62,6 +70,17 @@ public class CriminalDatabaseApplicationTester {
         assertTrue(db.searchFirst("Blop").get(0) instanceof Person);
     }
 
+<<<<<<< HEAD
+    //test SearchTattoo
+    @Test
+    void testSearchTattoo_Null() {
+        assertEquals(db.searchTattoo(null), new ArrayList<Person>());
+    }
+
+    @Test
+    void testSearchTattoo_ASCII() {
+        Person personAscii = db.searchTattoo("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïð").get(0);
+=======
     //searchLast test
     @Test
     void testSearchLast_Null() {
@@ -71,10 +90,21 @@ public class CriminalDatabaseApplicationTester {
     @Test
     void testSearchLast_ASCII() {
         Person personAscii = db.searchLast("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïð").get(0);
+>>>>>>> 83470f894e463e9bd184e15eff08ce08ad87369b
         assertTrue(personAscii instanceof Person);
     }
 
     @Test
+<<<<<<< HEAD
+    void testSearchTattoo_Incorrect() {
+        ArrayList<Person> peopleFound = db.searchTattoo("iuhawiudjpojmolnmaiwuidn");
+        assertTrue(peopleFound.size() == 0);
+    }
+
+    @Test
+    void testSearchTattoo_Correct() {
+        assertTrue(db.searchTattoo("red heart").get(0) instanceof Person);
+=======
     void testSearchLast_Correct() {
         assertTrue(db.searchLast("Whoo").get(0) instanceof Person);
     }
@@ -179,6 +209,7 @@ public class CriminalDatabaseApplicationTester {
     @Test
     void testSearchPhone_Correct() {
         assertTrue(db.searchPhone("8435051109").get(0) instanceof Person);
+>>>>>>> 83470f894e463e9bd184e15eff08ce08ad87369b
     }
 
     //searchAddress test
