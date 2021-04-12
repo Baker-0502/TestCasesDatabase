@@ -21,7 +21,13 @@ public class UserListTester {
 
     @Test
     void findUserNameInorrect(){
-        User getUser = db.findUser("astokes");
+        User getUser = db.findUser("stoke");
+        assertNull(getUser);
+    }
+
+    @Test
+    void findUserNameNull(){
+        User getUser = db.findUser(null);
         assertNull(getUser);
     }
 

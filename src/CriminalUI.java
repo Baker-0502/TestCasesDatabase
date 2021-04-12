@@ -427,8 +427,8 @@ public class CriminalUI {
                     database.writeToText(database.findPerson(lookingID));
                 }
             }
-            else if(database.findUser(lookingID)!=null){
-                System.out.println(database.findUser(lookingID));
+            else if(database.findUserID(lookingID)!=null){
+                System.out.println(database.findUserID(lookingID));
                 System.out.println("Would you like to print this user?(Y/N)");
                 String input = readIn.nextLine();
                 if(input.toLowerCase().equals("Y")){
