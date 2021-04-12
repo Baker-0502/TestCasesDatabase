@@ -373,11 +373,11 @@ public class CriminalDatabaseApplication {
 
     /**
      * 
-     * @param id unique evidence id
+     * @param string unique evidence id
      * @return returns evidence in evidenceList with that UUID
      */
-    public Evidence findEvidence(UUID id){
-        return evidenceList.findEvidence(id);
+    public Evidence findEvidence(String string){
+        return evidenceList.findEvidence(string);
     }
 
     /**

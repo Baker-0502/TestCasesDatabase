@@ -15,15 +15,21 @@ public class EvidenceListTester {
     }
 
     @Test
-    void findEvidenceIDCorrect(){
-        User getEvidenceID = db.getEvidenceID("IDtest");
-        assertNotNull(getEvidenceID);
+    void findEvidenceCorrect(){
+        Evidence getevidenceID = db.findEvidence("IDtest");
+        assertNotNull(getevidenceID);
     }
 
     @Test
-    void findEvidenceIDInorrect(){
-        User getEvidenceID = db.getEvidenceID("IDtest");
-        assertNull(getEvidenceID);
+    void findEvidenceIncorrect(){
+        Evidence getevidenceID = db.findEvidence("IDtest");
+        assertNull(getevidenceID);
     }
+    @Test
+    void findEvidenceNull(){
+        Evidence findevidenceID = db.findEvidence(null);
+        assertNull(findevidenceID);
+    }
+
 
 }
