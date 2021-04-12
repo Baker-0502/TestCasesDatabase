@@ -358,7 +358,7 @@ public class CriminalDatabaseApplication {
      * @param id unique user id
      * @return returns a user in userList with that UUID
      */
-    public User findUser(UUID id) {
+    public User findUserID(UUID id) {
         return userList.findUser(id);
     }
 
